@@ -63,6 +63,7 @@ In order to run all of the examples provided with this package you will also nee
 To see examples of how the functions in the package work type.
 
 library(KernEqWPS)
+
 help("KernEqWPS-package")
 
 ## License
