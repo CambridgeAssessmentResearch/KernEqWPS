@@ -1,0 +1,20 @@
+#' Simulated item score data
+#'
+#' A simulated data set of scores derived from IRT analysis of real maths items.
+#' This data is provided purely for the purposes of demonstrating some of the functionality of this R package when applied to fairly realistic data.
+#'
+#' A data set of 124 simulated item scores from a maths exam for 2000 pupils.
+#'
+#' @format A data frame with 2000 rows and 124 variables.
+"mathsdata"
+
+#' Simulated item score data from a high ability group
+#'
+#' A simulated data set of scores derived from IRT analysis of real maths items.
+#' The data is simulated for the same set of items as \emph{mathsdata} but for a higher ability group of pupils.
+#' This data is provided purely for the purposes of demonstrating some of the functionality of this R package when applied to fairly realistic data.
+#'
+#' A data set of 124 simulated item scores from a maths exam for 2000 pupils from a higher ability population.
+#'
+#' @format A data frame with 2000 rows and 124 variables.
+"mathsdata2"
