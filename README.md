@@ -2,7 +2,7 @@
 
 Maintainer: Cambridge Assessment, Assessment, Research and Development (ARD) <benton.t@cambridgeassessment.org.uk>
 
-Authors: Tom Benton
+Author: Tom Benton
 
 ## About
 
