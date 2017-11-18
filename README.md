@@ -37,6 +37,7 @@ Andersson, B., & von Davier, A. A. (2014). Improving the bandwidth selection in 
 
 Benton, T. (2017). Can AI learn to equate?, 
 *presented at the International Meeting of the Psychometric Society, Zurich, 2017*. Cambridge, UK: Cambridge Assessment.
+[http://cambridgeassessment.org.uk/Images/424229-can-ai-learn-to-equate-.pdf]
 
 Haberman, S. J. (1984). Adjustment by minimum discriminant information. 
 *The Annals of Statistics, 12*(3), 971-988.
