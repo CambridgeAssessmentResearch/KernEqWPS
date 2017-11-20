@@ -77,13 +77,12 @@ errorWPS=eqWPS$yxFunc(0:50)-eqCRIT$yxFunc(0:50)
 errorWPS2=eqWPS2$yxFunc(0:50)-eqCRIT$yxFunc(0:50)
 errorKEQUATE=eqKEQUATE@equating[,1]-eqCRIT$yxFunc(0:50)
 
-XPcount=tabulate(XP+1)
-if(length(XPcount)<50){XPcount=c(XPcount,rep(0,(50-length(XPcount))))}
+XPcount=kefreq(XP,0:50)[,2]
 
 #print the weighted average absolute errors of equating of each method
-print(c(sum(abs(errorWPS)*tabulate(XP+1))/sum(tabulate(XP+1)),
-	sum(abs(errorWPS2)*tabulate(XP+1))/sum(tabulate(XP+1)),
-	sum(abs(errorKEQUATE)*tabulate(XP+1))/sum(tabulate(XP+1))))
+print(c(sum(abs(errorWPS)*XPcount)/sum(XPcount),
+	sum(abs(errorWPS2)*XPcount)/sum(XPcount),
+	sum(abs(errorKEQUATE)*XPcount)/sum(XPcount)))
 #running this full simulation many times usually shows very little difference in average error
 #}
 
