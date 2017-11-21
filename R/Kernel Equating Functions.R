@@ -17,6 +17,7 @@
 #' }
 #'
 #' @keywords KernEqWPS
+#' @importFrom stats approxfun as.formula binomial cov dnorm glm.fit integrate median optimise optimize pnorm quantile rbinom runif sd terms uniroot var
 #' @export
 DistToMuSig=function(scores,count){
 	if(length(scores)!=length(count)){print("vector of scores different length from vector of frequencies")
@@ -161,7 +162,7 @@ FindBestBandwidth1Iter=function(scores,fX){
 		fhx1=fhx1*sum(fXb)/sum(fXa)
 		crit=sum(fXb*log(fhx1)-fhx1)
 		return(crit)}
-	optimise(BandCrit,c(0.05,30),scores=scores,fXa=fXa,fXb=fXb,msXa=msXa,maximum=TRUE)$maximum
+	optimize(BandCrit,c(0.05,30),scores=scores,fXa=fXa,fXb=fXb,msXa=msXa,maximum=TRUE)$maximum
 	}
 
 #' Method to find optimal bandwidth (between 0.05 and 30) that minimses cross-validation error between two half-samples.
