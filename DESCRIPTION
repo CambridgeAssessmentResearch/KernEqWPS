@@ -2,10 +2,7 @@ Package: KernEqWPS
 Title: Kernel Equating Without Pre-Smoothing
 Version: 1.0.0
 Authors@R: person("Tom", "Benton", email = "benton.t@cambridgeassessment.org.uk", role = c("aut", "cre"))
-Description: This package is designed to make kernel equating much easier
- than at present by removing the manual task of pre-smoothing the data. This
- is replaced by methods that achieve smoothing through choosing an appropriate
- bandwidth.
+Description: This package is designed to make kernel equating much easier than at present by removing the manual task of pre-smoothing the data. This is replaced by methods that achieve smoothing through choosing an appropriate bandwidth.
 Depends: R (>= 3.0.0)
 Imports: MASS, stats
 Suggests: ggplot2
