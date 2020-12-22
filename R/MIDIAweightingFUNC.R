@@ -68,7 +68,9 @@ return(NULL)}
 theta=starttheta*as.vector(maxs)*0.2
 if(is.na(theta)[1]){theta=rep(0,length(t))}
 #calculate current weights given theta coefficient
-w=exp(T%*%theta)/sum(exp(T%*%theta))
+Ttheta=T%*%theta
+Ttheta=Ttheta-max(Ttheta)
+w=exp(Ttheta)/sum(exp(Ttheta))
 #calculate current weighted mean
 m=colSums(T*as.vector(w))
 
@@ -86,7 +88,9 @@ SIGMA=t(temp1*as.vector(w))%*%(temp1)
 #theta=theta+solve(SIGMA)%*%(t-m)
 theta=theta+MASS::ginv(SIGMA)%*%(t-m)
 #calculate new weights given theta coefficient
-w=exp(T%*%theta)/sum(exp(T%*%theta))
+Ttheta=T%*%theta
+Ttheta=Ttheta-max(Ttheta)
+w=exp(Ttheta)/sum(exp(Ttheta))
 #calculate new weighted mean
 m=colSums(T*as.vector(w))
 #print(m)
