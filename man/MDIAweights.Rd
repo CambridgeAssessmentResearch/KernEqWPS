@@ -4,8 +4,7 @@
 \alias{MDIAweights}
 \title{Function to find weights that can be applied to a data set so that means of columns match assigned targets.}
 \usage{
-MDIAweights(datamatrix, targets, tol = 1e-06, maxiter = 100,
-  starttheta = NA)
+MDIAweights(datamatrix, targets, tol = 1e-06, maxiter = 100, starttheta = NA)
 }
 \arguments{
 \item{datamatrix}{Numeric matrix (or something that can be quickly converted into one e.g. a data frame).}

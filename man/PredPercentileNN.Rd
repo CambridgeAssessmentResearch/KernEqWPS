@@ -4,8 +4,13 @@
 \alias{PredPercentileNN}
 \title{Experimental function for getting percentiles using a standard neural network}
 \usage{
-PredPercentileNN(dx, anchortargettable = NA, maxx = NA, maxa = NA,
-  WeightsList = EquateNNWeights)
+PredPercentileNN(
+  dx,
+  anchortargettable = NA,
+  maxx = NA,
+  maxa = NA,
+  WeightsList = EquateNNWeights
+)
 }
 \arguments{
 \item{dx}{Data frame with variables "x" and "a" representing scores for individual candidates on form X and on the anchor test.}

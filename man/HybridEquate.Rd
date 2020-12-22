@@ -4,8 +4,15 @@
 \alias{HybridEquate}
 \title{Hybrid Levine-PSE equating.}
 \usage{
-HybridEquate(dx, dy, target = NA, order = 5, internal = FALSE, hX = NA,
-  hY = NA)
+HybridEquate(
+  dx,
+  dy,
+  target = NA,
+  order = 5,
+  internal = FALSE,
+  hX = NA,
+  hY = NA
+)
 }
 \arguments{
 \item{dx}{Data frame with variables "x" and "a" representing scores for individual candidates on form X and on the anchor test.}

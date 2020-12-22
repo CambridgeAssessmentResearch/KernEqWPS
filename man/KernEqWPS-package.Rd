@@ -26,7 +26,7 @@ This is achieved using the Adjustment by Minimum Discriminant Information method
 Functions to perform MDIA weighting are included within this package and may potentially be used in contexts aside from equating.
 
 Aside from post-stratification and chained equating, this package also implements the hybrid equating method decribed 
-in von Davier and Chen (2013).
+in von Davier and Chen (2013). 
 
 Finally this package implements two experimental equating methods that were devised by training neural networks
 to replicate known "true" equating functions within the nonequivalent groups with anchor test (NEAT) design.

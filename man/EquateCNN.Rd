@@ -4,8 +4,15 @@
 \alias{EquateCNN}
 \title{Experimental technique to equate using an approximation to a pre-trained convolutional neural network}
 \usage{
-EquateCNN(dx, dy, anchortargettable, maxx = NA, maxy = NA, maxa = NA,
-  WeightsList = ApproxCNNWeights)
+EquateCNN(
+  dx,
+  dy,
+  anchortargettable,
+  maxx = NA,
+  maxy = NA,
+  maxa = NA,
+  WeightsList = ApproxCNNWeights
+)
 }
 \arguments{
 \item{dx}{Data frame with variables "x" and "a" representing scores for individual candidates on form X and on the anchor test.}

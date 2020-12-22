@@ -4,7 +4,9 @@
 \name{mathsdata}
 \alias{mathsdata}
 \title{Simulated item score data}
-\format{A data frame with 2000 rows and 124 variables.}
+\format{
+A data frame with 2000 rows and 124 variables.
+}
 \usage{
 mathsdata
 }

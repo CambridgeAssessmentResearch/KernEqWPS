@@ -4,7 +4,9 @@
 \name{ApproxCNNWeights}
 \alias{ApproxCNNWeights}
 \title{A list of weights and biases for experimental equating using approximation to a convolutional neural network}
-\format{An object of class \code{list} of length 5.}
+\format{
+An object of class \code{list} of length 5.
+}
 \usage{
 ApproxCNNWeights
 }

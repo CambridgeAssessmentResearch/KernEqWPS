@@ -4,8 +4,13 @@
 \alias{PredPercentileCNN}
 \title{Experimental function for getting percentiles using an approximation to a trained convolutional neural network}
 \usage{
-PredPercentileCNN(dx, anchortargettable = NA, maxx = NA, maxa = NA,
-  WeightsList = ApproxCNNWeights)
+PredPercentileCNN(
+  dx,
+  anchortargettable = NA,
+  maxx = NA,
+  maxa = NA,
+  WeightsList = ApproxCNNWeights
+)
 }
 \arguments{
 \item{dx}{Data frame with variables "x" and "a" representing scores for individual candidates on form X and on the anchor test.}

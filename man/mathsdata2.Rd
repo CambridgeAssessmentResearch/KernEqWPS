@@ -4,7 +4,9 @@
 \name{mathsdata2}
 \alias{mathsdata2}
 \title{Simulated item score data from a high ability group}
-\format{A data frame with 2000 rows and 124 variables.}
+\format{
+A data frame with 2000 rows and 124 variables.
+}
 \usage{
 mathsdata2
 }

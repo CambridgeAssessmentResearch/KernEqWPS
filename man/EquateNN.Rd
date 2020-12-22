@@ -4,8 +4,15 @@
 \alias{EquateNN}
 \title{Experimental technique to equate using a pre-trained neural network}
 \usage{
-EquateNN(dx, dy, anchortargettable, maxx = NA, maxy = NA, maxa = NA,
-  WeightsList = EquateNNWeights)
+EquateNN(
+  dx,
+  dy,
+  anchortargettable,
+  maxx = NA,
+  maxy = NA,
+  maxa = NA,
+  WeightsList = EquateNNWeights
+)
 }
 \arguments{
 \item{dx}{Data frame with variables "x" and "a" representing scores for individual candidates on form X and on the anchor test.}
