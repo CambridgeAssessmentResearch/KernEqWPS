@@ -13,6 +13,7 @@
 #'   \item{wts}{A vector of weights.}
 #'   \item{iter}{The number of iterations taken to converge. If this is equal to maxiter then convergenece may not have been achieved.}
 #'   \item{FinalWeightedMeans}{The weighted means on each column in the data matrix.}
+#'   \item{theta}{Parameters used for weighting.}
 #' }
 #'
 #' @references
@@ -55,17 +56,18 @@ T=as.matrix(datamatrix)
 maxs=apply(abs(T),2,max)
 t=as.vector(targets)
 #divide initial version by fifth of maximum to avoid computational singularity
-T=5*t(t(T)/as.vector(maxs))
-t=5*t/as.vector(maxs)
+T=t(t(T)/as.vector(maxs))
+t=t/as.vector(maxs)
 
 dimT=dim(T)
 nt=length(t)
 if(dim(T)[2]!=nt){
-print("Number of targets MUST equal number of variables in input data")
-return(NULL)}
+  print("Number of targets MUST equal number of variables in input data")
+  return(NULL)
+}
 
 #initial theta
-theta=starttheta*as.vector(maxs)*0.2
+theta=starttheta*as.vector(maxs)
 if(is.na(theta)[1]){theta=rep(0,length(t))}
 #calculate current weights given theta coefficient
 Ttheta=T%*%theta
@@ -77,26 +79,68 @@ m=colSums(T*as.vector(w))
 stop=0
 if(max(abs(t-m))<tol){stop=1}
 iter=0
-
 while(stop==0){
-iter=iter+1
-#calculate current covariance matrix
-#non-looping way
-temp1=t(t(T)-m)
-SIGMA=t(temp1*as.vector(w))%*%(temp1)
-#update theta
-#theta=theta+solve(SIGMA)%*%(t-m)
-theta=theta+MASS::ginv(SIGMA)%*%(t-m)
-#calculate new weights given theta coefficient
+  iter=iter+1
+  #calculate current covariance matrix
+  #non-looping way
+  temp1=t(t(T)-m)
+  SIGMA=t(temp1*as.vector(w))%*%(temp1)
+  #update theta
+  #theta=theta+solve(SIGMA)%*%(t-m)
+  theta=theta+MASS::ginv(SIGMA)%*%(t-m)
+  #calculate new weights given theta coefficient
+  Ttheta=T%*%theta
+  Ttheta=Ttheta-max(Ttheta)
+  w=exp(Ttheta)/sum(exp(Ttheta))
+  #calculate new weighted mean
+  m=colSums(T*as.vector(w))
+  #print(m)
+  #print(cbind(t,m))
+  if(max(abs(t-m))<tol|iter>=maxiter){stop=1}
+}
+
+#IF METHOD HAS FAILED THEN RESTART AND REFIT WITH A SMALLER STEP SIZE AT EACH ITERATION
+#...that is...theta=theta+0.3*MASS::ginv(SIGMA)%*%(t-m)
+#...rather than...theta=theta+MASS::ginv(SIGMA)%*%(t-m)
+
+if (iter>=maxiter){
+#initial theta
+theta=starttheta*as.vector(maxs)
+if(is.na(theta)[1]){theta=rep(0,length(t))}
+#calculate current weights given theta coefficient
 Ttheta=T%*%theta
 Ttheta=Ttheta-max(Ttheta)
 w=exp(Ttheta)/sum(exp(Ttheta))
-#calculate new weighted mean
+#calculate current weighted mean
 m=colSums(T*as.vector(w))
-#print(m)
-if(max(abs(t-m))<tol|iter>=maxiter){stop=1}}
 
-return(list(wts=w,iter=iter,FinalWeightedMeans=0.2*maxs*m))}
+stop=0
+if(max(abs(t-m))<tol){stop=1}
+iter=0
+while(stop==0){
+  iter=iter+1
+  #calculate current covariance matrix
+  #non-looping way
+  temp1=t(t(T)-m)
+  SIGMA=t(temp1*as.vector(w))%*%(temp1)
+  #update theta (smaller step size)
+  theta=theta+0.3*MASS::ginv(SIGMA)%*%(t-m)
+  #calculate new weights given theta coefficient
+  Ttheta=T%*%theta
+  Ttheta=Ttheta-max(Ttheta)
+  w=exp(Ttheta)/sum(exp(Ttheta))
+  #calculate new weighted mean
+  m=colSums(T*as.vector(w))
+  #print(m)
+  #print(cbind(t,m))
+  if(max(abs(t-m))<tol|iter>=maxiter){stop=1}
+}
+}
+
+#print(cbind(t,m))
+
+return(list(wts=w,iter=iter,FinalWeightedMeans=maxs*m,theta=theta/as.vector(maxs)))
+}
 
 #' Function to find weights to apply to a number of groups in a data set to ensure equivalence on some variables.
 #'
