@@ -137,6 +137,9 @@ while(stop==0){
 }
 }
 
+#If convergence still questionable then give an error rather than silently give bad results
+if (iter>=maxiter){stop("Error: convergence not achieved. Consider using a lower order of matching.")}
+
 #print(cbind(t,m))
 
 return(list(wts=w,iter=iter,FinalWeightedMeans=maxs*m,theta=theta/as.vector(maxs)))
