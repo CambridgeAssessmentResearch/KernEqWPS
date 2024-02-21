@@ -2,6 +2,7 @@
 % Please edit documentation in R/KernEqWPS-package.R
 \docType{package}
 \name{KernEqWPS-package}
+\alias{KernEqWPS}
 \alias{KernEqWPS-package}
 \title{KernEqWPS (Kernel Equating Without Pre-Smoothing).}
 \description{

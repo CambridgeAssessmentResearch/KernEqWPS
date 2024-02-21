@@ -23,6 +23,7 @@ The function returns a list with the following elements:
   \item{wts}{A vector of weights.}
   \item{iter}{The number of iterations taken to converge. If this is equal to maxiter then convergenece may not have been achieved.}
   \item{FinalWeightedMeans}{The weighted means on each column in the data matrix.}
+  \item{theta}{Parameters used for weighting.}
 }
 }
 \description{

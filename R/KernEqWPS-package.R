@@ -40,7 +40,6 @@
 #' von Davier, A. A., & Chen, H. (2013). The Kernel Levine Equipercentile Observed-Score Equating Function. ETS Research Report Series.
 #' 
 #' @name KernEqWPS-package
-#' @docType package
 #' @title KernEqWPS (Kernel Equating Without Pre-Smoothing).
 #' @author Tom Benton, Cambridge Assessment.
 #' @examples
@@ -128,4 +127,4 @@
 #' sum(distX*abs(eqCNN$CNNEqFunc(0:max(XP))-eqEG$yxFunc(0:max(XP))))/sum(distX)
 #' 
 #' @keywords package
-NULL
+"_PACKAGE"
