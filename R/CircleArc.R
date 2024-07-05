@@ -38,7 +38,7 @@ CircleArcFromMeans=function(meanX,meanY,minX,minY,maxX,maxY){
 	checkcor=round(cor(c(x1,x2,x3),c(y1,y2,y3)),10)
 	if(checkcor==1){
     		yxFunc = function(xscores){y1+(xscores-x1)*(y3-y1)/(x3-x1)}
-    		scoresX = floor(x1):ceiling(x2)
+    		scoresX = floor(x1):ceiling(x3)
     		return(list(yxFunc = yxFunc, EqTable = data.frame(x = scoresX, 
         		equiyx = yxFunc(scoresX))))
 	}
