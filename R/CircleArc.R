@@ -33,6 +33,18 @@ CircleArcFromMeans=function(meanX,meanY,minX,minY,maxX,maxY){
 	y2=meanY
 	y3=maxY
 
+	#if completely linear relationship then centre of circle will be infinitely far away
+	#need to deal with this instance first to avoid (rare) errors
+	checkcor=cor(c(x1,x2,x3),c(y1,y2,y3))
+	if(checkcor==1){
+    		yxFunc = function(xscores){y1+(xscores-x1)*(y3-y1)/(x3-x1)}
+    		scoresX = floor(x1):ceiling(x2)
+    		return(list(yxFunc = yxFunc, EqTable = data.frame(x = scoresX, 
+        		equiyx = yxFunc(scoresX))))
+	}
+
+
+	#return to applying main formulae
 	Lx2=(y1+((y3-y1)/(x3-x1))*(x2-x1))#L(x2) in the notation of Livingston and Kim
 	y2s=y2-Lx2 #y2s is y2* in the notation of Livingston and Kim
 
