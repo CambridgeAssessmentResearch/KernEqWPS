@@ -26,20 +26,22 @@ Functions to perform MDIA weighting are included within this package and may pot
 Aside from post-stratification and chained equating, this package also implements the hybrid equating method decribed 
 in von Davier and Chen (2013). 
  
-Finally this package implements two experimental equating methods that were devised by training neural networks
+This package also implements two experimental equating methods that were devised by training neural networks
 to replicate known "true" equating functions within the nonequivalent groups with anchor test (NEAT) design.
 See Benton (2017) for more details.
+
+This package also implements the odds-transform method of test equating. This is designed as a simple (and more robust) alternative to circle-arc equating. See Benton & Carroll (2025) for more details.
 
 **References**
 
 Andersson, B., & von Davier, A. A. (2014). Improving the bandwidth selection in kernel equating. 
 *Journal of Educational Measurement, 51*(3), 223-238.
 
-Benton, T. (2017). Can AI learn to equate?, 
-
-*presented at the International Meeting of the Psychometric Society, Zurich, 2017*. 
+Benton, T. (2017). Can AI learn to equate?, *presented at the International Meeting of the Psychometric Society, Zurich, 2017*. 
 Cambridge, UK: Cambridge Assessment.
 [http://cambridgeassessment.org.uk/Images/424229-can-ai-learn-to-equate-.pdf]
+
+Benton, T. & Carroll, M. (2025). *The biggest equating study in the world ever*. Research report. Cambridge University Press & Assessment.
 
 Haberman, S. J. (1984). Adjustment by minimum discriminant information. 
 *The Annals of Statistics, 12*(3), 971-988.
@@ -55,9 +57,7 @@ This package can be installed using the devtools package using the commands belo
 
 
 library(devtools)
-
-
-
+Sys.setenv("R_REMOTES_NO_ERRORS_FROM_WARNINGS"=TRUE)
 install_github("CambridgeAssessmentResearch/KernEqWPS")
 
 
