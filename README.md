@@ -57,7 +57,11 @@ This package can be installed using the devtools package using the commands belo
 
 
 library(devtools)
+
+
 Sys.setenv("R_REMOTES_NO_ERRORS_FROM_WARNINGS"=TRUE)
+
+
 install_github("CambridgeAssessmentResearch/KernEqWPS")
 
 
